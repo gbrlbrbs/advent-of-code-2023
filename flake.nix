@@ -19,13 +19,13 @@
     ...
   }: let
     system = "x86_64-linux";
-    pkgs = import nixpkgs {inherit system;};
     nativeBuildInputs = with pkgs; [bashInteractive];
     overlays = [(import rust-overlay)];
-    rustToolchain = pkgs.pkgsBuildHost.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
+    pkgs = import nixpkgs {inherit system overlays;};
+    rustToolchain = pkgs.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
   in
     with pkgs; {
-      devShells.default = mkShell {
+      devShells.${system}.default = mkShell {
         inherit nativeBuildInputs;
         buildInputs = [rustToolchain];
       };
