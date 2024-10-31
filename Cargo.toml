@@ -13,6 +13,6 @@ regex = "1.11.1"
 name = "aoc"
 path = "src/lib.rs"
 
-[[day1]]
+[[bin]]
 name = "day1"
 path = "src/bin/day1-bin.rs"
