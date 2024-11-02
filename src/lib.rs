@@ -1,4 +1,8 @@
+#[macro_use]
+mod macros;
+
 pub mod day1;
+pub mod day2;
 use std::io::{self, BufRead, BufReader};
 use std::fs::File;
 use std::path::Path;
